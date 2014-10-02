@@ -27,37 +27,30 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity REG_32x32 is
-    Port ( RegWrite : in  STD_LOGIC;
-           RdAddr1 : in  STD_LOGIC_VECTOR (4 downto 0);
-           RdAddr2 : in  STD_LOGIC_VECTOR (4 downto 0);
-           WAddr : in  STD_LOGIC_VECTOR (4 downto 0);
+entity Memory is
+    Port ( MemWrite : in  STD_LOGIC;
+			  MemRead : in STD_LOGIC;
+           Addr : in  STD_LOGIC_VECTOR (31 downto 0);
            Wd : in  STD_LOGIC_VECTOR (31 downto 0);
-           RdOut1 : out  STD_LOGIC_VECTOR (31 downto 0);
-           RdOut2 : out  STD_LOGIC_VECTOR (31 downto 0);
+           RdOut : out  STD_LOGIC_VECTOR (31 downto 0);
 			  CLK : in STD_LOGIC
 			);
-end REG_32x32;
+end Memory;
 
-architecture Behavioral of REG_32x32 is
-type registerFile is array(0 to 31) of STD_LOGIC_VECTOR (31 downto 0);
+architecture Behavioral of Memory is
+type registerFile is array(0 to 4294967295) of STD_LOGIC_VECTOR (31 downto 0);
 signal registers : registerFile;
 begin
 	p1: process(CLK)
 	begin
 		if rising_edge(CLK) then
-			if MemWrite = '1' then
-				registers(to_integer(unsigned(WAddr))) <= Wd;
-			end if;
-			RdOut1 <= registers(to_integer(unsigned(RdAddr1)));
-			RdOut2 <= registers(to_integer(unsigned(RdAddr2)));
-			if MemWrite = '1' then
-				if WAddr = RdAddr1 then
-					RdOut1 <= Wd;
-				end if;
-				if WAddr = RdAddr2 then
-					RdOut2 <= Wd;
-				end if;
+			if MemRead = '1' and MemWrite = '1' then
+				RdOut <= Wd;
+				registers(to_integer(unsigned(Addr))) <= Wd;
+			elsif MemWrite = '1' then
+				registers(to_integer(unsigned(Addr))) <= Wd;
+			elsif MemRead = '1' then 
+				RdOut <= registers(to_integer(unsigned(Addr)));
 			end if;
 		end if;
 	end process;
