@@ -1,0 +1,186 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Programs and Simulations/GitHub/MIPS_SingleCycle
+Eadder
+Z1 w1412243210
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8ADDER.vhd
+Z7 FADDER.vhd
+l0
+L30
+VIF^ST9=M1UBj3W`WHZ9nE1
+!s100 Tn<QnLUbePSGNX8z<=kI:3
+Z8 OP;C;10.3c;59
+31
+Z9 !s110 1412244537
+!i10b 1
+Z10 !s108 1412244537.227000
+Z11 !s90 -explicit|-93|ADDER.vhd|
+Z12 !s107 ADDER.vhd|
+!i113 1
+Z13 o-explicit -93 -O0
+Z14 tExplicit 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 5 adder 0 22 IF^ST9=M1UBj3W`WHZ9nE1
+l37
+L35
+VGd^6h`cY4CZG:;LRF:A`Q3
+!s100 QHK5^SL<JhIg<UEMQz=]O1
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eadder_tbw
+Z15 w1412244535
+Z16 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R2
+R3
+R4
+R5
+R0
+Z17 8ADDER_TBW.ant
+Z18 FADDER_TBW.ant
+l0
+L27
+VBdFX`;EUoR0=F5I9B;8MP1
+!s100 C8DG8<8SSaCa:bS8GLYi:1
+R8
+31
+R9
+!i10b 1
+Z19 !s108 1412244537.913000
+Z20 !s90 -explicit|-93|ADDER_TBW.ant|
+Z21 !s107 ADDER_TBW.ant|
+!i113 1
+R13
+R14
+Atestbench_arch
+R16
+R2
+R3
+R4
+R5
+DEx4 work 9 adder_tbw 0 22 BdFX`;EUoR0=F5I9B;8MP1
+l46
+L30
+VkgfO_Niz7<QFd9fZWi?cI1
+!s100 SJQCNK2z_JJ[U8[1K__<Z0
+R8
+31
+R9
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Ealu
+Z22 w1412245073
+R2
+R3
+R4
+R5
+R0
+Z23 8ALU.vhd
+Z24 FALU.vhd
+l0
+L30
+Vk7L[HMNEh_@Hl?JYj?nEb3
+!s100 2IDG:W^Ljo>OH7^2Hhel90
+R8
+31
+Z25 !s110 1412245086
+!i10b 1
+Z26 !s108 1412245086.355000
+Z27 !s90 -explicit|-93|ALU.vhd|
+Z28 !s107 ALU.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 3 alu 0 22 k7L[HMNEh_@Hl?JYj?nEb3
+l40
+L38
+VUze_M^S1HBQ5L^g@D:mb`1
+!s100 2kAXiOo2SHE?lY6AGdXTM2
+R8
+31
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R13
+R14
+Ealu_tbw
+Z29 w1412244963
+R16
+R2
+R3
+R4
+R5
+R0
+Z30 8ALU_TBW.ant
+Z31 FALU_TBW.ant
+l0
+L27
+VC0kn6Z[GL=8g<cFG@OG8d1
+!s100 ?JG7H_9ScH?IGGXkI1M_X2
+R8
+31
+Z32 !s110 1412245087
+!i10b 1
+Z33 !s108 1412245087.098000
+Z34 !s90 -explicit|-93|ALU_TBW.ant|
+Z35 !s107 ALU_TBW.ant|
+!i113 1
+R13
+R14
+Atestbench_arch
+R16
+R2
+R3
+R4
+R5
+Z36 DEx4 work 7 alu_tbw 0 22 C0kn6Z[GL=8g<cFG@OG8d1
+l52
+L30
+Z37 Vfj9E54KTngeNzA8c^^2gT1
+Z38 !s100 0l2T;haQfkFgf`BP?=Ahc2
+R8
+31
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R13
+R14
