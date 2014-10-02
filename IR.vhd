@@ -19,9 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
+use IEEE.NUMERIC_STD.ALL;
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
 --library UNISIM;
@@ -29,14 +28,14 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity IR is
     Port ( Addr : in  STD_LOGIC_VECTOR (31 downto 0);
-           Inst : out  STD_LOGIC_VECTOR (31 downto 0));
+           Inst : out  STD_LOGIC_VECTOR (31 downto 0);
 			  CLK : in STD_LOGIC;
 			  Wd : in  STD_LOGIC_VECTOR (31 downto 0);
-			  InstWrite : in  STD_LOGIC;
+			  InstWrite : in  STD_LOGIC);
 end IR;
 
 architecture Behavioral of IR is
-type registerFile is array(0 to 4294967295) of STD_LOGIC_VECTOR (31 downto 0);
+type registerFile is array(0 to 2147483647) of STD_LOGIC_VECTOR (31 downto 0);
 signal registers : registerFile;
 begin
 	p1: process(CLK)
@@ -44,7 +43,8 @@ begin
 		if rising_edge(CLK) then
 			if InstWrite = '1' then
 				registers(to_integer(unsigned(Addr))) <= Wd;
-			else
+				Inst <= x"XXXXXXXX";
+			elsif InstWrite = '0' then
 				Inst <= registers(to_integer(unsigned(Addr)));
 			end if;
 		end if;

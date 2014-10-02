@@ -38,7 +38,7 @@ entity Memory is
 end Memory;
 
 architecture Behavioral of Memory is
-type registerFile is array(0 to 4294967295) of STD_LOGIC_VECTOR (31 downto 0);
+type registerFile is array(0 to 2147483647) of STD_LOGIC_VECTOR (31 downto 0); --TODO: Integer length? 2147483648 == 2^31 != 2^32 -1
 signal registers : registerFile;
 begin
 	p1: process(CLK)

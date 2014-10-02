@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    15:16:39 10/02/2014 
+-- Create Date:    22:07:22 10/02/2014 
 -- Design Name: 
--- Module Name:    ADDER - Behavioral 
+-- Module Name:    ControlUnit - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -27,16 +27,24 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ADDER is
-    Port ( In1 : in  STD_LOGIC_VECTOR (31 downto 0);
-			  In2 : in STD_LOGIC_VECTOR (31 downto 0);
-           Out1 : out  STD_LOGIC_VECTOR (31 downto 0));
-end ADDER;
+entity ControlUnit is
+    Port ( OpCode : in  STD_LOGIC_VECTOR (5 downto 0);
+           Fuct : in  STD_LOGIC_VECTOR (5 downto 0);
+           MemtoReg : out  STD_LOGIC;
+           MemWrite : out  STD_LOGIC;
+           Branch : out  STD_LOGIC;
+           ALUSrc : out  STD_LOGIC;
+           RegDst : out  STD_LOGIC;
+           RegWrite : out  STD_LOGIC;
+           ALUControl : out  STD_LOGIC_VECTOR(2 downto 0);
+			  Jump : out STD_LOGIC;
+			  CLK : in STD_LOGIC);
+end ControlUnit;
 
-architecture Behavioral of ADDER is
+architecture Behavioral of ControlUnit is
 
 begin
-	Out1 <= In1 + In2;
+
 
 end Behavioral;
 

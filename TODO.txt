@@ -1,0 +1,8 @@
+Structural Design : Not Top Module?
+
+TOP_MODULE:
+	Next Address Calculation: Append?
+Control Unit:
+	Implement
+Input in IR?
+Output from Register/Memory?

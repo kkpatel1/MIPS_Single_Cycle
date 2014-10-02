@@ -8,7 +8,7 @@
 -- \   \   \/     Version : 8.2i
 --  \   \         Application : ISE
 --  /   /         Filename : ADDER_TBW.vhw
--- /___/   /\     Timestamp : Thu Oct 02 15:39:09 2014
+-- /___/   /\     Timestamp : Thu Oct 02 23:38:21 2014
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -33,12 +33,14 @@ ARCHITECTURE testbench_arch OF ADDER_TBW IS
     COMPONENT ADDER
         PORT (
             In1 : In std_logic_vector (31 DownTo 0);
+            In2 : In std_logic_vector (31 DownTo 0);
             Out1 : Out std_logic_vector (31 DownTo 0)
         );
     END COMPONENT;
 
-    SIGNAL In1 : std_logic_vector (31 DownTo 0) := "00000000000000000000000000001010";
-    SIGNAL Out1 : std_logic_vector (31 DownTo 0) := "00000000000000000000000000001110";
+    SIGNAL In1 : std_logic_vector (31 DownTo 0) := "00000000000000000000000000000000";
+    SIGNAL In2 : std_logic_vector (31 DownTo 0) := "00000000000000000000000000000000";
+    SIGNAL Out1 : std_logic_vector (31 DownTo 0) := "00000000000000000000000000000000";
 
     SHARED VARIABLE TX_ERROR : INTEGER := 0;
     SHARED VARIABLE TX_OUT : LINE;
@@ -47,6 +49,7 @@ ARCHITECTURE testbench_arch OF ADDER_TBW IS
         UUT : ADDER
         PORT MAP (
             In1 => In1,
+            In2 => In2,
             Out1 => Out1
         );
 
@@ -74,13 +77,21 @@ ARCHITECTURE testbench_arch OF ADDER_TBW IS
                 END IF;
             END;
             BEGIN
+                -- -------------  Current Time:  100ns
+                WAIT FOR 100 ns;
+                In2 <= "00000000000000000000000000000101";
+                -- -------------------------------------
+                -- -------------  Current Time:  150ns
+                WAIT FOR 50 ns;
+                CHECK_Out1("00000000000000000000000000000101", 150);
+                -- -------------------------------------
                 -- -------------  Current Time:  300ns
-                WAIT FOR 300 ns;
-                In1 <= "00000000000000001111111111111100";
+                WAIT FOR 150 ns;
+                In1 <= "00000000000000001111111111110100";
                 -- -------------------------------------
                 -- -------------  Current Time:  350ns
                 WAIT FOR 50 ns;
-                CHECK_Out1("00000000000000010000000000000000", 350);
+                CHECK_Out1("00000000000000001111111111111001", 350);
                 WAIT FOR 650 ns;
 
                 IF (TX_ERROR = 0) THEN
