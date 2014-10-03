@@ -8,7 +8,7 @@
 -- \   \   \/     Version : 8.2i
 --  \   \         Application : ISE
 --  /   /         Filename : PC_TBW.vhw
--- /___/   /\     Timestamp : Thu Oct 02 16:12:14 2014
+-- /___/   /\     Timestamp : Fri Oct 03 14:18:26 2014
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -33,14 +33,14 @@ ARCHITECTURE testbench_arch OF PC_TBW IS
 
     COMPONENT PC
         PORT (
-            NextAddr : In std_logic_vector (4 DownTo 0);
-            CurrAddr : Out std_logic_vector (4 DownTo 0);
+            NextAddr : In std_logic_vector (31 DownTo 0);
+            CurrAddr : Out std_logic_vector (31 DownTo 0);
             CLK : In std_logic
         );
     END COMPONENT;
 
-    SIGNAL NextAddr : std_logic_vector (4 DownTo 0) := "00000";
-    SIGNAL CurrAddr : std_logic_vector (4 DownTo 0) := "UUUUU";
+    SIGNAL NextAddr : std_logic_vector (31 DownTo 0) := "00000000000000000000000000000000";
+    SIGNAL CurrAddr : std_logic_vector (31 DownTo 0) := "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU";
     SIGNAL CLK : std_logic := '0';
 
     SHARED VARIABLE TX_ERROR : INTEGER := 0;
@@ -71,7 +71,7 @@ ARCHITECTURE testbench_arch OF PC_TBW IS
 
         PROCESS
             PROCEDURE CHECK_CurrAddr(
-                next_CurrAddr : std_logic_vector (4 DownTo 0);
+                next_CurrAddr : std_logic_vector (31 DownTo 0);
                 TX_TIME : INTEGER
             ) IS
                 VARIABLE TX_STR : String(1 to 4096);
@@ -95,8 +95,8 @@ ARCHITECTURE testbench_arch OF PC_TBW IS
             BEGIN
                 -- -------------  Current Time:  100ns
                 WAIT FOR 100 ns;
-                NextAddr <= "11111";
-                CHECK_CurrAddr("11111", 100);
+                CHECK_CurrAddr("11111000000000000000000000000000", 100);
+                NextAddr <= "11111000000000000000000000000000";
                 -- -------------------------------------
                 WAIT FOR 1100 ns;
 

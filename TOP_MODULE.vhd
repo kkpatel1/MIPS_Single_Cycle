@@ -28,7 +28,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity TOP_MODULE is
-	port ( CLK : in STD_LOGIC );
+	port ( CLK : in STD_LOGIC;
+			  Output : out STD_LOGIC_VECTOR(31 downto 0));
 end TOP_MODULE;
 
 architecture Structural of TOP_MODULE is
@@ -43,7 +44,8 @@ component ControlUnit
            RegWrite : out  STD_LOGIC;
            ALUControl : out  STD_LOGIC_VECTOR(2 downto 0);
 			  CLK : in STD_LOGIC;
-			  Jump : in STD_LOGIC );
+			  Jump : out STD_LOGIC;
+			  RegOut : out STD_LOGIC);
 end component;
 component ADDER
 	Port ( In1 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -118,6 +120,8 @@ signal MemtoRegOut : STD_LOGIC_VECTOR(31 downto 0);
 signal PCad4 : STD_LOGIC_VECTOR(31 downto 0);
 signal PCad4adSX : STD_LOGIC_VECTOR(31 downto 0);
 signal InstData : STD_LOGIC_VECTOR(31 downto 0);
+signal RegOut : STD_LOGIC;
+signal shifted : STD_LOGIC_VECTOR(31 downto 0);
 begin
 	RegDstProcess: process(CLK)
 	begin
@@ -145,7 +149,7 @@ begin
 	end process;
 	NextAddrCalc: process(CLK)
 	begin
-		if Jump = '0' then
+		if Jump = '1' then
 			NextAddr <= PCad4(31 downto 28) + Inst(25 downto 0) + "00";
 		elsif Branch = '1' and COMP = '1' then
 			NextAddr <= PCad4adSX;
@@ -165,6 +169,7 @@ begin
 										 ALUControl => ALUControl,
 										 CLK => CLK,
 										 Jump => Jump,
+										 RegOut => RegOut,
 										 OpCode => Inst(31 downto 26),
 										 Fuct => Inst(5 downto 0));
 	RegFile : REG_32x32 port map ( RegWrite => RegWrite,
@@ -188,8 +193,11 @@ begin
 								  Wd => RdOut2,
 								  RdOut => MemOut,
 								  CLK => CLK);
+	Output <= RdOut1 when RegOut = '1' else
+				 MemOut when RegOut = '0';
 	---Fetch---
 	PCadd4: Adder port map ( In1 => CurrAddr, In2 => x"00000004", Out1 => PCad4 );
-	PCadd4addSX : Adder port map ( In1 => PCad4, In2 => to_StdLogicVector(to_BitVector(SXOut) sla 2), Out1 => PCad4adSX);
+	shifted <= to_StdLogicVector(to_BitVector(SXOut) sla 2);
+	PCadd4addSX : Adder port map ( In1 => PCad4, In2 => shifted, Out1 => PCad4adSX);
 end Structural;
 

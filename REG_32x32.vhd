@@ -41,17 +41,17 @@ end REG_32x32;
 
 architecture Behavioral of REG_32x32 is
 type registerFile is array(0 to 31) of STD_LOGIC_VECTOR (31 downto 0);
-signal registers : registerFile;
+signal registers : registerFile := (others => (others => '0'));
 begin
 	p1: process(CLK)
 	begin
 		if rising_edge(CLK) then
-			if MemWrite = '1' then
+			if RegWrite = '1' then
 				registers(to_integer(unsigned(WAddr))) <= Wd;
 			end if;
 			RdOut1 <= registers(to_integer(unsigned(RdAddr1)));
 			RdOut2 <= registers(to_integer(unsigned(RdAddr2)));
-			if MemWrite = '1' then
+			if RegWrite = '1' then
 				if WAddr = RdAddr1 then
 					RdOut1 <= Wd;
 				end if;

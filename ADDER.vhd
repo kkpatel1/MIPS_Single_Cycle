@@ -19,8 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
@@ -36,7 +36,10 @@ end ADDER;
 architecture Behavioral of ADDER is
 
 begin
-	Out1 <= In1 + In2;
+	process(In1, In2)
+	begin	
+		Out1 <= In1 + In2;
+	end process;
 
 end Behavioral;
 

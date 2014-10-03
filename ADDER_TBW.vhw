@@ -8,7 +8,7 @@
 -- \   \   \/     Version : 8.2i
 --  \   \         Application : ISE
 --  /   /         Filename : ADDER_TBW.vhw
--- /___/   /\     Timestamp : Thu Oct 02 23:38:21 2014
+-- /___/   /\     Timestamp : Fri Oct 03 14:15:16 2014
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -19,9 +19,10 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 USE IEEE.STD_LOGIC_TEXTIO.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
 USE STD.TEXTIO.ALL;
 
 ENTITY ADDER_TBW IS
@@ -92,7 +93,15 @@ ARCHITECTURE testbench_arch OF ADDER_TBW IS
                 -- -------------  Current Time:  350ns
                 WAIT FOR 50 ns;
                 CHECK_Out1("00000000000000001111111111111001", 350);
-                WAIT FOR 650 ns;
+                -- -------------------------------------
+                -- -------------  Current Time:  500ns
+                WAIT FOR 150 ns;
+                In1 <= "00000000000000001111111111110101";
+                -- -------------------------------------
+                -- -------------  Current Time:  550ns
+                WAIT FOR 50 ns;
+                CHECK_Out1("00000000000000001111111111111010", 550);
+                WAIT FOR 450 ns;
 
                 IF (TX_ERROR = 0) THEN
                     STD.TEXTIO.write(TX_OUT, string'("No errors or warnings"));

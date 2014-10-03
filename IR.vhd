@@ -34,20 +34,32 @@ entity IR is
 			  InstWrite : in  STD_LOGIC);
 end IR;
 
+--architecture Behavioral of IR is
+--type registerFile is array(0 to 2097151) of STD_LOGIC_VECTOR (31 downto 0);
+--signal registers : registerFile;
+--begin
+--	p1: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+--			if InstWrite = '1' then
+--				registers(to_integer(unsigned(Addr(20 downto 0)))) <= Wd;
+--				Inst <= x"00000000";
+--			elsif InstWrite = '0' then
+--				Inst <= registers(to_integer(unsigned(Addr(20 downto 0))));
+--			end if;
+--		end if;
+--	end process;
+--end Behavioral;
 architecture Behavioral of IR is
-type registerFile is array(0 to 2147483647) of STD_LOGIC_VECTOR (31 downto 0);
-signal registers : registerFile;
 begin
-	p1: process(CLK)
+	process(CLK)
 	begin
 		if rising_edge(CLK) then
-			if InstWrite = '1' then
-				registers(to_integer(unsigned(Addr))) <= Wd;
-				Inst <= x"XXXXXXXX";
-			elsif InstWrite = '0' then
-				Inst <= registers(to_integer(unsigned(Addr)));
+			if Addr = x"00000000" then
+				Inst <= x"2001FFFF";
+			elsif Addr = x"00000001" then
+				Inst <= x"FC2F0000";
 			end if;
 		end if;
 	end process;
 end Behavioral;
-
