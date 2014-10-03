@@ -1,0 +1,106 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+LDCP_ALUControl0: LDCP port map (ALUControl(0),ALUControl_D(0),_not0012,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUControl_D(0) <= ((NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(4) AND NOT Fuct(3) AND Fuct(1) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2) AND NOT Fuct(2) AND Fuct(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(4) AND NOT Fuct(3) AND NOT Fuct(1) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2) AND Fuct(2) AND NOT Fuct(0)));
+</td></tr><tr><td>
+LDCP_ALUControl1: LDCP port map (ALUControl(1),ALUControl_D(1),_not0012,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUControl_D(1) <= ((OpCode(3) AND _not0011)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT Fuct(1) AND _not0012));
+</td></tr><tr><td>
+LDCP_ALUControl2: LDCP port map (ALUControl(2),ALUControl_D(2),_not0012,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUControl_D(2) <= ((NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(4) AND NOT Fuct(3) AND NOT Fuct(1) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2) AND Fuct(2) AND NOT Fuct(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(4) AND NOT Fuct(3) AND NOT Fuct(1) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2) AND NOT Fuct(2) AND Fuct(0)));
+</td></tr><tr><td>
+LDCP_ALUSrc: LDCP port map (ALUSrc,ALUSrc_D,_not0007,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUSrc_D <= ((OpCode(3) AND NOT OpCode(0) AND _not0008)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (OpCode(1) AND OpCode(0) AND OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2)));
+</td></tr><tr><td>
+LDCP_Branch: LDCP port map (Branch,Branch_D,_not0007,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Branch_D <= (NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND OpCode(2));
+</td></tr><tr><td>
+LDCP_Jump: LDCP port map (Jump,Jump_D,_not0009,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jump_D <= (NOT OpCode(3) AND NOT OpCode(1) AND OpCode(0) AND NOT OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND OpCode(2));
+</td></tr><tr><td>
+LDCP_MemWrite: LDCP port map (MemWrite,MemWrite_D,_not0009,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MemWrite_D <= (OpCode(3) AND OpCode(1) AND OpCode(0) AND OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND NOT OpCode(2));
+</td></tr><tr><td>
+LDCP_MemtoReg: LDCP port map (MemtoReg,MemtoReg_D,_not0008,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MemtoReg_D <= (NOT OpCode(3) AND OpCode(1) AND OpCode(0) AND OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND NOT OpCode(2));
+</td></tr><tr><td>
+LDCP_RegDst: LDCP port map (RegDst,RegDst_D,_not0011,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegDst_D <= (NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND NOT OpCode(2));
+</td></tr><tr><td>
+LDCP_RegOut: LDCP port map (RegOut,RegOut_D,,'0','0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegOut_D <= (OpCode(3) AND OpCode(1) AND OpCode(0) AND OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OpCode(4) AND OpCode(2));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegOut_G <= (OpCode(3) AND OpCode(1) AND OpCode(5) AND OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OpCode(2));
+</td></tr><tr><td>
+LDCP_RegWrite: LDCP port map (RegWrite,_not0011,_not0009,'0','0');
+</td></tr><tr><td>
+</td></tr><tr><td>
+_not0007 <= ((NOT OpCode(0) AND _not0009)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (OpCode(5) AND _not0009));
+</td></tr><tr><td>
+</td></tr><tr><td>
+_not0008 <= ((_not0011)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (OpCode(3) AND OpCode(1) AND OpCode(5) AND OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OpCode(2)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+_not0009 <= ((_not0008)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(3) AND NOT OpCode(1) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OpCode(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (OpCode(1) AND OpCode(0) AND OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+_not0011 <= ((NOT OpCode(1) AND NOT OpCode(0) AND NOT OpCode(5) AND NOT OpCode(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(3) AND OpCode(1) AND OpCode(0) AND OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND NOT OpCode(2)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+_not0012 <= ((OpCode(3) AND NOT OpCode(1) AND NOT OpCode(0) AND NOT OpCode(5) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT OpCode(4) AND NOT OpCode(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND NOT Fuct(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(3) AND NOT OpCode(5) AND NOT OpCode(4) AND NOT OpCode(2) AND NOT Fuct(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT OpCode(1) AND NOT OpCode(0) AND NOT Fuct(5) AND NOT Fuct(4) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(3) AND NOT Fuct(1) AND NOT OpCode(5) AND NOT OpCode(4) AND NOT OpCode(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT Fuct(0)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>

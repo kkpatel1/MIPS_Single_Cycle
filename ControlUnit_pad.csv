@@ -1,0 +1,73 @@
+Release 8.1i - Fit I.31
+Copyright(c) 1995-2003 Xilinx Inc. All rights reserved
+
+10- 4-2014  0:06AM
+
+NOTE: This file is designed to be imported into a spreadsheet program
+such as Microsoft Excel for viewing, printing and sorting. The comma ','
+character is used as the data field separator.
+This file is also designed to support parsing.
+
+Input file:  ControlUnit.ngd
+output file: ControlUnit_pad.csv
+Part type:   xa2c32a
+Speed grade: -6
+Package:     vq44
+
+Pinout by Pin Number:
+
+-----,-----,-----,-----,-----,-----,-----,-----,-----,-----,
+Pin Number,Signal Name,Pin Usage,Pin Name,Direction,IO Standard,IO Bank Number,{blank},Slew Rate,Termination,{blank},Voltage,Constraint,
+P1,OpCode<5>,I,I/O/GCK2,INPUT,LVCMOS18,1,,FAST,,,,
+P2,KPR,,I/O,,,1,,,,,,,
+P3,KPR,,I/O,,,1,,,,,,,
+P4,GND,,GND,,,,,,,,,,
+P5,KPR,,I/O,,,1,,,,,,,
+P6,KPR,,I/O,,,1,,,,,,,
+P7,,VCCIO-1.8,VCCIO,,,1,,,,,,,
+P8,KPR,,I/O,,,1,,,,,,,
+P9,TDI,,TDI,,,,,,,,,,
+P10,TMS,,TMS,,,,,,,,,,
+P11,TCK,,TCK,,,,,,,,,,
+P12,KPR,,I/O,,,1,,,,,,,
+P13,KPR,,I/O,,,1,,,,,,,
+P14,KPR,,I/O,,,1,,,,,,,
+P15,,VCC,VCC,,,,,,,,,,
+P16,KPR,,I/O,,,1,,,,,,,
+P17,GND,,GND,,,,,,,,,,
+P18,KPR,,I,,,2,,,,,,,
+P19,Fuct<4>,I,I/O,INPUT,LVCMOS18,2,,FAST,,,,
+P20,Fuct<3>,I,I/O,INPUT,LVCMOS18,2,,FAST,,,,
+P21,Fuct<2>,I,I/O,INPUT,LVCMOS18,2,,FAST,,,,
+P22,Fuct<1>,I,I/O,INPUT,LVCMOS18,2,,FAST,,,,
+P23,Fuct<0>,I,I/O,INPUT,LVCMOS18,2,,FAST,,,,
+P24,TDO,,TDO,,,,,,,,,,
+P25,GND,,GND,,,,,,,,,,
+P26,,VCCIO-1.8,VCCIO,,,2,,,,,,,
+P27,RegWrite,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P28,ALUControl<1>,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P29,RegDst,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P30,MemWrite,O,I/O/GSR,OUTPUT,LVCMOS18,2,,FAST,,,,
+P31,Jump,O,I/O/GTS2,OUTPUT,LVCMOS18,2,,FAST,,,,
+P32,Branch,O,I/O/GTS3,OUTPUT,LVCMOS18,2,,FAST,,,,
+P33,ALUSrc,O,I/O/GTS0,OUTPUT,LVCMOS18,2,,FAST,,,,
+P34,MemtoReg,O,I/O/GTS1,OUTPUT,LVCMOS18,2,,FAST,,,,
+P35,,VCCAUX,VAUX,,,,,,,,,,
+P36,RegOut,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P37,ALUControl<2>,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P38,ALUControl<0>,O,I/O,OUTPUT,LVCMOS18,2,,FAST,,,,
+P39,Fuct<5>,I,I/O,INPUT,LVCMOS18,1,,FAST,,,,
+P40,OpCode<0>,I,I/O,INPUT,LVCMOS18,1,,FAST,,,,
+P41,OpCode<1>,I,I/O,INPUT,LVCMOS18,1,,FAST,,,,
+P42,OpCode<2>,I,I/O,INPUT,LVCMOS18,1,,FAST,,,,
+P43,OpCode<3>,I,I/O/GCK0,INPUT,LVCMOS18,1,,FAST,,,,
+P44,OpCode<4>,I,I/O/GCK1,INPUT,LVCMOS18,1,,FAST,,,,
+
+To preserve the pinout above for future design iterations in
+Project Navigator simply execute the (Lock Pins) process
+located under the (Implement Design) process in a toolbox named
+(Optional Implementation Tools) or invoke PIN2UCF from the
+command line. The location constraints will be written into your
+specified UCF file
+
+

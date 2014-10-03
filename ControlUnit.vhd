@@ -39,15 +39,20 @@ entity ControlUnit is
            ALUControl : out  STD_LOGIC_VECTOR(2 downto 0);
 			  Jump : out STD_LOGIC;
 			  CLK : in STD_LOGIC;
-			  RegOut : out STD_LOGIC);
+			  RegOut : out STD_LOGIC;
+			  InstWrite : in STD_LOGIC);
 end ControlUnit;
 
 architecture Behavioral of ControlUnit is
-
 begin
-	RType: process(CLK)
+--	RType: process(CLK)
+	Main : process(CLK, OpCode)
 	begin
-		if OpCode = "000000" then
+--		if rising_edge(CLK) then
+		if InstWrite = '1' then
+			Branch <= '0';
+			Jump <= '0';
+		elsif OpCode = "000000" then
 			if Fuct = "000000" then
 				ALUControl <= "010";
 			elsif Fuct = "000001" then
@@ -66,11 +71,13 @@ begin
 			MemtoReg <= '0';
 			Branch <= '0';
 			Jump <= '0';
-		end if;
-	end process;
-	LW: process(CLK)
-	begin
-		if OpCode = "100011" then
+--			end if;
+--		end if;
+--	end process;
+--	LW: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "100011" then
 			MemtoReg <= '1';
 			MemWrite <= '0';
 			Branch <= '0';
@@ -78,52 +85,62 @@ begin
 			RegDst <= '0';
 			RegWrite <= '1';
 			Jump <= '0';
-		end if;
-	end process;
-	SW: process(CLK)
-	begin
-		if OpCode = "101011" then
+--			end if;
+--		end if;
+--	end process;
+--	SW: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "101011" then
 			MemWrite <= '1';
 			Branch <= '0';
 			ALUSrc <= '1';
 			RegWrite <= '0';
 			Jump <= '0';
-		end if;
-	end process;
-	Beq: process(CLK)
-	begin
-		if OpCode = "000100" then
+--			end if;
+--		end if;
+--	end process;
+--	Beq: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "000100" then
 			MemWrite <= '0';
 			Branch <= '1';
 			ALUSrc <= '0';
 			RegWrite <= '0';
 			Jump <= '0';
-		end if;
-	end process;
-	J: process(CLK)
-	begin
-		if OpCode = "000101" then 
+--			end if;
+--		end if;
+--	end process;
+--	J: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "000101" then 
 			MemWrite <= '0';
 			RegWrite <= '0';
 			Jump <= '1';
-		end if;
-	end process;
-	AddImmediate: process(CLK)
-	begin
-		if OpCode = "001000" then
+--			end if;
+--		end if;
+--	end process;
+--	AddImmediate: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "001000" then
 			MemtoReg <= '0';
 			MemWrite <= '0';
 			Branch <= '0';
 			ALUSrc <= '1';
 			RegDst <= '0';
 			RegWrite <= '1';
-			ALUControl <= "000";
+			ALUControl <= "010";
 			Jump <= '0';
-		end if;
-	end process;
-	PrintReg: process(CLK)
-	begin
-		if OpCode = "111111" then
+--			end if;
+--		end if;
+--	end process;
+--	PrintReg: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "111111" then
 			ALUSrc <= '0';
 			MemWrite <= '0';
 			MemtoReg <= '0';
@@ -131,18 +148,22 @@ begin
 			Branch <= '0';
 			Jump <= '0';
 			RegOut <= '1';
-		end if;
-	end process;
-	PrintMem: process(CLK)
-	begin
-		if OpCode = "111110" then
+--			end if;
+--		end if;
+--	end process;
+--	PrintMem: process(CLK)
+--	begin
+--		if rising_edge(CLK) then
+		elsif OpCode = "111110" then
 			MemtoReg <= '0';
 			MemWrite <= '0';
 			Branch <= '0';
 			ALUSrc <= '1';
 			RegWrite <= '0';
 			Jump <= '0';
+			RegOut <= '0';
 		end if;
+--		end if;
 	end process;	
 end Behavioral;
 

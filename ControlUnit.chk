@@ -1,0 +1,45 @@
+
+----------------------------------------
+|  P a r t i t i o n    S u c c e e d  |
+----------------------------------------
+0 Group(s)
+
+----------------- B l o c k 0 ------------------
+PLApt(29/56), Fanin(17/38), Clk(0/3), Bct(1/4), Pin(16/16), Mcell(16/16)
+PLApts[29/41] 12 15 17 25 16 13 5 23 4 3 6 7 10 1 9 11 0 14 2 22 8 19 21 20 () 21 () () 18 () () 18 () () 24 
+              () () () () () 18
+Fanins[17] _not0007.n _not0008.n _not0009.n _not0011.n _not0012.n Fuct<0>.p Fuct<1>.p Fuct<2>.p Fuct<3>.p 
+           Fuct<4>.p Fuct<5>.p OpCode<0>.p OpCode<1>.p OpCode<2>.p OpCode<3>.p OpCode<4>.p OpCode<5>.p
+clk[0] 
+CTC: (pt=16) _not0012 ;
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[21] [ALUControl<0>(45),ALUControl<0>(38)] [ALUControl<1>(54),ALUControl<1>(28)]  
+           [ALUControl<2>(46),ALUControl<2>(37)] [ALUSrc(49),ALUSrc(33)] [Branch(50),Branch(32)]  
+           [Jump(51),Jump(31)] [MemWrite(52),MemWrite(30)] [MemtoReg(48),MemtoReg(34)]  
+           [RegDst(53),RegDst(29)] [RegOut(47),RegOut(36)] [RegWrite(55),RegWrite(27)] [Fuct<0>(23)]  
+           [Fuct<1>(22)] [Fuct<2>(21)] [Fuct<3>(20)] [Fuct<4>(19)] [_not0012(60)] [_not0009(59)]  
+           [_not0008(58)] [_not0011(57)] [_not0007(56)] 
+Signal[21] [ 0: ALUControl<0>(45) ALUControl<0>(38)  ][ 1: ALUControl<2>(46) ALUControl<2>(37)  ][ 2:  
+           RegOut(47) RegOut(36)  ][ 3: MemtoReg(48) MemtoReg(34)  ][ 4: ALUSrc(49) ALUSrc(33)  ][ 5:  
+           Branch(50) Branch(32)  ][ 6: Jump(51) Jump(31)  ][ 7: MemWrite(52) MemWrite(30)  ][ 8: RegDst(53)  
+           RegDst(29)  ][ 9: ALUControl<1>(54) ALUControl<1>(28)  ][ 10: RegWrite(55) RegWrite(27)  ][ 11:  
+           _not0007(56) Fuct<0>(23)  ][ 12: _not0011(57) Fuct<1>(22)  ][ 13: _not0008(58) Fuct<2>(21)  ] 
+           [ 14: _not0009(59) Fuct<3>(20)  ][ 15: _not0012(60) Fuct<4>(19)  ]
+----------------- B l o c k 1 ------------------
+PLApt(0/56), Fanin(0/38), Clk(0/3), Bct(0/4), Pin(7/16), Mcell(0/16)
+PLApts[0/0]
+Fanins[ 0]
+clk[0] 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[ 7] [Fuct<5>(39)] [OpCode<0>(40)] [OpCode<1>(41)] [OpCode<2>(42)] [OpCode<3>(43)] [OpCode<4>(44)]  
+           [OpCode<5>(1)] 
+Signal[ 7] [ 0: Fuct<5>(39)  ][ 1: OpCode<0>(40)  ][ 2: OpCode<1>(41)  ][ 3: OpCode<2>(42)  ][ 4:  
+           OpCode<3>(43)  ][ 5: OpCode<4>(44)  ][ 6: OpCode<5>(1)  ][ 7: (2)  ][ 8: (3)  ][ 9: (5)  ][ 10:  
+           (6)  ][ 11: (8)  ][ 12: (12)  ][ 13: (13)  ][ 14: (14)  ][ 15: (16)  ]

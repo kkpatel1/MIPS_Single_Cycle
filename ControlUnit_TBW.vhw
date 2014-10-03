@@ -8,7 +8,7 @@
 -- \   \   \/     Version : 8.2i
 --  \   \         Application : ISE
 --  /   /         Filename : ControlUnit_TBW.vhw
--- /___/   /\     Timestamp : Fri Oct 03 15:29:02 2014
+-- /___/   /\     Timestamp : Fri Oct 03 15:39:01 2014
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -28,6 +28,8 @@ ENTITY ControlUnit_TBW IS
 END ControlUnit_TBW;
 
 ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
+    FILE RESULTS: TEXT OPEN WRITE_MODE IS "results.txt";
+
     COMPONENT ControlUnit
         PORT (
             OpCode : In std_logic_vector (5 DownTo 0);
@@ -47,16 +49,16 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
 
     SIGNAL OpCode : std_logic_vector (5 DownTo 0) := "100011";
     SIGNAL Fuct : std_logic_vector (5 DownTo 0) := "100011";
-    SIGNAL MemtoReg : std_logic := '0';
-    SIGNAL MemWrite : std_logic := '0';
-    SIGNAL Branch : std_logic := '0';
-    SIGNAL ALUSrc : std_logic := '0';
-    SIGNAL RegDst : std_logic := '0';
-    SIGNAL RegWrite : std_logic := '0';
-    SIGNAL ALUControl : std_logic_vector (2 DownTo 0) := "000";
-    SIGNAL Jump : std_logic := '0';
+    SIGNAL MemtoReg : std_logic := 'U';
+    SIGNAL MemWrite : std_logic := 'U';
+    SIGNAL Branch : std_logic := 'U';
+    SIGNAL ALUSrc : std_logic := 'U';
+    SIGNAL RegDst : std_logic := 'U';
+    SIGNAL RegWrite : std_logic := 'U';
+    SIGNAL ALUControl : std_logic_vector (2 DownTo 0) := "UUU";
+    SIGNAL Jump : std_logic := 'U';
     SIGNAL CLK : std_logic := '0';
-    SIGNAL RegOut : std_logic := '0';
+    SIGNAL RegOut : std_logic := 'U';
 
     SHARED VARIABLE TX_ERROR : INTEGER := 0;
     SHARED VARIABLE TX_OUT : LINE;
@@ -110,6 +112,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_ALUControl);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -131,6 +134,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_ALUSrc);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -152,6 +156,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_Branch);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -173,6 +178,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_Jump);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -194,6 +200,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_MemWrite);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -215,6 +222,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_MemtoReg);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -236,6 +244,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_RegDst);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -257,6 +266,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_RegOut);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
@@ -278,16 +288,27 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, next_RegWrite);
                     STD.TEXTIO.write(TX_LOC, string'(" "));
                     TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                    STD.TEXTIO.writeline(RESULTS, TX_LOC);
                     STD.TEXTIO.Deallocate(TX_LOC);
                     ASSERT (FALSE) REPORT TX_STR SEVERITY ERROR;
                     TX_ERROR := TX_ERROR + 1;
                 END IF;
             END;
             BEGIN
-                WAIT FOR 1200 ns;
+                -- -------------  Current Time:  100ns
+                WAIT FOR 100 ns;
+                CHECK_MemtoReg('1', 100);
+                CHECK_MemWrite('0', 100);
+                CHECK_Branch('0', 100);
+                CHECK_ALUSrc('1', 100);
+                CHECK_RegDst('0', 100);
+                CHECK_RegWrite('1', 100);
+                CHECK_Jump('0', 100);
+                WAIT FOR 1100 ns;
 
                 IF (TX_ERROR = 0) THEN
                     STD.TEXTIO.write(TX_OUT, string'("No errors or warnings"));
+                    STD.TEXTIO.writeline(RESULTS, TX_OUT);
                     ASSERT (FALSE) REPORT
                       "Simulation successful (not a failure).  No problems detected."
                       SEVERITY FAILURE;
@@ -295,6 +316,7 @@ ARCHITECTURE testbench_arch OF ControlUnit_TBW IS
                     STD.TEXTIO.write(TX_OUT, TX_ERROR);
                     STD.TEXTIO.write(TX_OUT,
                         string'(" errors found in simulation"));
+                    STD.TEXTIO.writeline(RESULTS, TX_OUT);
                     ASSERT (FALSE) REPORT "Errors found during simulation"
                          SEVERITY FAILURE;
                 END IF;

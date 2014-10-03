@@ -1,8 +1,6 @@
-Structural Design : Not Top Module?
+Test Jump Instruction
+Input in IR:
+	Simultaneous RISING_EDGE detection -- Implement this in PC to get different nextAdderess,
+						when PC is in InstWrite Mode or not.
 
-TOP_MODULE:
-	Next Address Calculation: Append?
-Control Unit:
-	Implement
-Input in IR?
-Output from Register/Memory?
+Beq: Process. Use InitializeIR1 and 2 for debugging

@@ -1,0 +1,217 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="paths.js"></script><script src="eqns.js"></script><script>
+      var design = "ControlUnit";
+      var device = "XA2C32A";
+      signals = new Array("ALUControl0_SPECSIG","ALUControl1_SPECSIG","ALUControl2_SPECSIG","ALUSrc","Branch","Jump","MemWrite","MemtoReg","RegDst","RegOut","RegWrite","_not0007","_not0008","_not0009","_not0011","_not0012");
+      sigNegs = new Array("OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF");
+      sigTypes = new Array("LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","LATCH","","","","","");
+
+      
+        specSig["OpCode3_SPECSIG"]=new Array("OpCode<3>");
+      
+        specSig["OpCode1_SPECSIG"]=new Array("OpCode<1>");
+      
+        specSig["OpCode0_SPECSIG"]=new Array("OpCode<0>");
+      
+        specSig["Fuct5_SPECSIG"]=new Array("Fuct<5>");
+      
+        specSig["Fuct4_SPECSIG"]=new Array("Fuct<4>");
+      
+        specSig["Fuct3_SPECSIG"]=new Array("Fuct<3>");
+      
+        specSig["Fuct1_SPECSIG"]=new Array("Fuct<1>");
+      
+        specSig["OpCode5_SPECSIG"]=new Array("OpCode<5>");
+      
+        specSig["OpCode4_SPECSIG"]=new Array("OpCode<4>");
+      
+        specSig["OpCode2_SPECSIG"]=new Array("OpCode<2>");
+      
+        specSig["Fuct2_SPECSIG"]=new Array("Fuct<2>");
+      
+        specSig["Fuct0_SPECSIG"]=new Array("Fuct<0>");
+      
+        specSig["ALUControl0_SPECSIG"]=new Array("ALUControl<0>");
+      
+        specSig["ALUControl2_SPECSIG"]=new Array("ALUControl<2>");
+      
+        specSig["ALUControl1_SPECSIG"]=new Array("ALUControl<1>");
+      
+            pterms["FB1_0"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/Fuct5_SPECSIG","/Fuct4_SPECSIG","/Fuct3_SPECSIG","Fuct1_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG","/Fuct2_SPECSIG","Fuct0_SPECSIG");
+          
+            pterms["FB1_1"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/Fuct5_SPECSIG","/Fuct4_SPECSIG","/Fuct3_SPECSIG","/Fuct1_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG","Fuct2_SPECSIG","/Fuct0_SPECSIG");
+          
+            pterms["FB1_2"]=new Array("/Fuct1_SPECSIG","_not0012");
+          
+            pterms["FB1_3"]=new Array("OpCode3_SPECSIG","_not0011");
+          
+            pterms["FB1_4"]=new Array("_not0012");
+          
+            pterms["FB1_5"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/Fuct5_SPECSIG","/Fuct4_SPECSIG","/Fuct3_SPECSIG","/Fuct1_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG","/Fuct2_SPECSIG","Fuct0_SPECSIG");
+          
+            pterms["FB1_6"]=new Array("OpCode1_SPECSIG","OpCode0_SPECSIG","OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_7"]=new Array("OpCode3_SPECSIG","/OpCode0_SPECSIG","_not0008");
+          
+            pterms["FB1_8"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","OpCode2_SPECSIG");
+          
+            pterms["FB1_9"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","OpCode0_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","OpCode2_SPECSIG");
+          
+            pterms["FB1_10"]=new Array("OpCode3_SPECSIG","OpCode1_SPECSIG","OpCode0_SPECSIG","OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_11"]=new Array("/OpCode3_SPECSIG","OpCode1_SPECSIG","OpCode0_SPECSIG","OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_12"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_13"]=new Array("OpCode3_SPECSIG","OpCode1_SPECSIG","OpCode0_SPECSIG","OpCode5_SPECSIG","OpCode4_SPECSIG","OpCode2_SPECSIG");
+          
+            pterms["FB1_14"]=new Array("OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode0_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_15"]=new Array("/OpCode1_SPECSIG","/OpCode0_SPECSIG","/Fuct5_SPECSIG","/Fuct4_SPECSIG","/Fuct3_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG","/Fuct2_SPECSIG");
+          
+            pterms["FB1_16"]=new Array("OpCode3_SPECSIG","OpCode1_SPECSIG","OpCode5_SPECSIG","OpCode4_SPECSIG","OpCode2_SPECSIG");
+          
+            pterms["FB1_17"]=new Array("/OpCode1_SPECSIG","/OpCode0_SPECSIG","/Fuct5_SPECSIG","/Fuct4_SPECSIG","/Fuct3_SPECSIG","/Fuct1_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG","/Fuct0_SPECSIG");
+          
+            pterms["FB1_18"]=new Array("/OpCode3_SPECSIG","/OpCode1_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","OpCode2_SPECSIG");
+          
+            pterms["FB1_19"]=new Array("_not0008");
+          
+            pterms["FB1_20"]=new Array("/OpCode1_SPECSIG","/OpCode0_SPECSIG","/OpCode5_SPECSIG","/OpCode4_SPECSIG","/OpCode2_SPECSIG");
+          
+            pterms["FB1_21"]=new Array("/OpCode0_SPECSIG","_not0009");
+          
+            pterms["FB1_22"]=new Array("_not0007");
+          
+            pterms["FB1_23"]=new Array("OpCode5_SPECSIG","_not0009");
+          
+            pterms["FB1_25"]=new Array("_not0007");
+          
+            pterms["FB1_28"]=new Array("_not0009");
+          
+            pterms["FB1_31"]=new Array("_not0009");
+          
+            pterms["FB1_34"]=new Array("_not0011");
+          
+            pterms["FB1_40"]=new Array("_not0009");
+          
+          d2["ALUControl0_SPECSIG"]=new Array("FB1_0","FB1_1");
+          
+              clk["ALUControl0_SPECSIG"]=new Array("FB1_4");
+              prld["ALUControl0_SPECSIG"]="GND";
+          d2["ALUControl2_SPECSIG"]=new Array("FB1_1","FB1_5");
+          
+              clk["ALUControl2_SPECSIG"]=new Array("FB1_4");
+              prld["ALUControl2_SPECSIG"]="GND";
+          d2["RegOut"]=new Array("FB1_13");
+          
+              clk["RegOut"]=new Array("FB1_16");
+              prld["RegOut"]="GND";
+          d2["MemtoReg"]=new Array("FB1_11");
+          
+              clk["MemtoReg"]=new Array("FB1_19");
+              prld["MemtoReg"]="GND";
+          d2["ALUSrc"]=new Array("FB1_7","FB1_6");
+          
+              clk["ALUSrc"]=new Array("FB1_22");
+              prld["ALUSrc"]="GND";
+          d2["Branch"]=new Array("FB1_8");
+          
+              clk["Branch"]=new Array("FB1_22");
+              prld["Branch"]="GND";
+          d2["Jump"]=new Array("FB1_9");
+          
+              clk["Jump"]=new Array("FB1_28");
+              prld["Jump"]="GND";
+          d2["MemWrite"]=new Array("FB1_10");
+          
+              clk["MemWrite"]=new Array("FB1_28");
+              prld["MemWrite"]="GND";
+          d2["RegDst"]=new Array("FB1_12");
+          
+              clk["RegDst"]=new Array("FB1_34");
+              prld["RegDst"]="GND";
+          d2["ALUControl1_SPECSIG"]=new Array("FB1_3","FB1_2");
+          
+              clk["ALUControl1_SPECSIG"]=new Array("FB1_4");
+              prld["ALUControl1_SPECSIG"]="GND";
+          d2["RegWrite"]=new Array("FB1_34");
+          
+              clk["RegWrite"]=new Array("FB1_28");
+              prld["RegWrite"]="GND";
+          d2["_not0007"]=new Array("FB1_21","FB1_23");
+          
+          d2["_not0011"]=new Array("FB1_20","FB1_11");
+          
+          d2["_not0008"]=new Array("FB1_34","FB1_16");
+          
+          d2["_not0009"]=new Array("FB1_19","FB1_18","FB1_6");
+          
+          d2["_not0012"]=new Array("FB1_14","FB1_15","FB1_17");
+          
+
+      uimSignals = new Array();
+
+      uimSigNegs = new Array();
+
+      uimPterms = new Array();
+      
+
+      
+        function getEqnList() {
+          var str = "<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>";
+          str += "<center><h3>Equations</h3></center>";
+          str += "<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>";
+          for (s=0; s<uimSignals.length; s++) {
+            str += "<tr><td>";
+            str += retUimEqn(uimSignals[s]);
+            str += "</td></tr>";
+          }
+          for (s=0; s<signals.length; s++) {
+            str += "<tr><td>";
+            str += retEqn(signals[s]);
+            str += "</td></tr>";
+          }
+
+          var legend = retLegend();
+		      if (legend != "") {
+		        str += "<tr><td>" + legend + "</td></tr>";
+		      }
+
+          str += "</table>";
+          str += "<form><span class='pgRef'>";
+
+          if (!parent.leftnav.IsNS()) {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><input type='button' value='back to top' ";
+            str += "onclick='javascript:parent.leftnav.showEqnAll()' ";
+            str += "onmouseover=\"window.status='goto top of page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<input type='button' value='print page' ";
+            str += "onclick='javascript:window.print()' ";
+            str += "onmouseover=\"window.status='print page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+          else {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><a href='javascript:parent.leftnav.showEqnAll()'>back to top</a>";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<a href='javascript:window.print()'>";
+            str += "print page</a>";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+
+          str += "</span></form>";
+          str += "</body></html>";
+          return str;
+        }
+      
+    </script>
+</head></html>

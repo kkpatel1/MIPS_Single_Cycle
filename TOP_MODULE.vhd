@@ -29,7 +29,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity TOP_MODULE is
 	port ( CLK : in STD_LOGIC;
-			  Output : out STD_LOGIC_VECTOR(31 downto 0));
+			  Output : out STD_LOGIC_VECTOR(31 downto 0);
+			  InstWrite : in STD_LOGIC;
+			  InstIn : in STD_LOGIC_VECTOR(31 downto 0));
 end TOP_MODULE;
 
 architecture Structural of TOP_MODULE is
@@ -45,7 +47,8 @@ component ControlUnit
            ALUControl : out  STD_LOGIC_VECTOR(2 downto 0);
 			  CLK : in STD_LOGIC;
 			  Jump : out STD_LOGIC;
-			  RegOut : out STD_LOGIC);
+			  RegOut : out STD_LOGIC;
+			  InstWrite : in STD_LOGIC);
 end component;
 component ADDER
 	Port ( In1 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -78,7 +81,8 @@ end component;
 component PC
 	Port ( NextAddr : in  STD_LOGIC_VECTOR (31 downto 0);
            CurrAddr : out  STD_LOGIC_VECTOR (31 downto 0);
-			  CLK : in STD_LOGIC
+			  CLK : in STD_LOGIC;
+			  InstWrite : in STD_LOGIC
 		  );
 end component;
 component REG_32x32
@@ -119,7 +123,6 @@ signal MemOut : STD_LOGIC_VECTOR(31 downto 0);
 signal MemtoRegOut : STD_LOGIC_VECTOR(31 downto 0);
 signal PCad4 : STD_LOGIC_VECTOR(31 downto 0);
 signal PCad4adSX : STD_LOGIC_VECTOR(31 downto 0);
-signal InstData : STD_LOGIC_VECTOR(31 downto 0);
 signal RegOut : STD_LOGIC;
 signal shifted : STD_LOGIC_VECTOR(31 downto 0);
 begin
@@ -158,8 +161,8 @@ begin
 		end if;
 	end process;
 	---Execution---
-	PC1: PC port map ( NextAddr => NextAddr, CurrAddr => CurrAddr, CLK => CLK);
-	IR1: IR port map ( Addr => CurrAddr, Inst => Inst, CLK => CLK, InstWrite => '0', Wd => x"00000000" );
+	PC1: PC port map ( NextAddr => NextAddr, CurrAddr => CurrAddr, CLK => CLK, InstWrite => InstWrite);
+	IR1: IR port map ( Addr => CurrAddr, Inst => Inst, CLK => CLK, InstWrite => InstWrite, Wd => InstIn );
 	CU1: ControlUnit port map ( MemtoReg => MemtoReg,
 										 MemWrite => MemWrite,
 										 Branch => Branch,
@@ -171,7 +174,8 @@ begin
 										 Jump => Jump,
 										 RegOut => RegOut,
 										 OpCode => Inst(31 downto 26),
-										 Fuct => Inst(5 downto 0));
+										 Fuct => Inst(5 downto 0),
+										 InstWrite => InstWrite);
 	RegFile : REG_32x32 port map ( RegWrite => RegWrite,
 											  RdAddr1 => Inst(25 downto 21),
 											  RdAddr2 => Inst(20 downto 16),
@@ -196,7 +200,7 @@ begin
 	Output <= RdOut1 when RegOut = '1' else
 				 MemOut when RegOut = '0';
 	---Fetch---
-	PCadd4: Adder port map ( In1 => CurrAddr, In2 => x"00000004", Out1 => PCad4 );
+	PCadd4: Adder port map ( In1 => CurrAddr, In2 => x"00000001", Out1 => PCad4 );
 	shifted <= to_StdLogicVector(to_BitVector(SXOut) sla 2);
 	PCadd4addSX : Adder port map ( In1 => PCad4, In2 => shifted, Out1 => PCad4adSX);
 end Structural;
