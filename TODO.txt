@@ -1,6 +1,12 @@
-Test Jump Instruction
-Input in IR:
-	Simultaneous RISING_EDGE detection -- Implement this in PC to get different nextAdderess,
-						when PC is in InstWrite Mode or not.
+Check COMP? True or False when Equal?
 
-Beq: Process. Use InitializeIR1 and 2 for debugging
+Add some inst. to initialize a register with a number. Or, check why AddImmediate is not working if it is a first Instruction to be executed.
+
+Otherwise Everything is done.
+Write some basic programs. Save it's scripts. Check Jump, R-Type insts. other than Add.
+
+Make Documentation
+
+Try learning about "mti.h"
+
+Otherwise use Python/Java program to convert mnemonics into Binary and Make a script. And open modelSim using Python/Java with the script loaded.

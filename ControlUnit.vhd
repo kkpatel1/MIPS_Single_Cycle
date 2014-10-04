@@ -40,18 +40,19 @@ entity ControlUnit is
 			  Jump : out STD_LOGIC;
 			  CLK : in STD_LOGIC;
 			  RegOut : out STD_LOGIC;
-			  InstWrite : in STD_LOGIC);
+			  InstWrite : in STD_LOGIC;
+			  RegRead : out STD_LOGIC);
 end ControlUnit;
 
 architecture Behavioral of ControlUnit is
+shared variable count : STD_LOGIC_VECTOR(1 downto 0) := "00";
 begin
---	RType: process(CLK)
-	Main : process(CLK, OpCode)
+	Main : process(OpCode, InstWrite)
 	begin
---		if rising_edge(CLK) then
 		if InstWrite = '1' then
 			Branch <= '0';
 			Jump <= '0';
+	--	RType: process(CLK)
 		elsif OpCode = "000000" then
 			if Fuct = "000000" then
 				ALUControl <= "010";
@@ -65,12 +66,18 @@ begin
 				ALUControl <= "111";
 			end if;
 			RegDst <= '1';
-			RegWrite <= '1';
 			ALUSrc <= '0';
 			MemWrite <= '0';
 			MemtoReg <= '0';
 			Branch <= '0';
 			Jump <= '0';
+			if count = "00" then
+				RegRead <= '1';
+				count := count + 1;
+			elsif count = "01" then
+				RegWrite <= '1';
+				count := "00";
+			end if;
 --			end if;
 --		end if;
 --	end process;
@@ -83,8 +90,15 @@ begin
 			Branch <= '0';
 			ALUSrc <= '1';
 			RegDst <= '0';
-			RegWrite <= '1';
 			Jump <= '0';
+			ALUControl <= "010";
+			if count = "00" then
+				RegRead <= '1';
+				count := count + 1;
+			elsif count = "01" then
+				RegWrite <= '1';
+				count := "00";
+			end if;
 --			end if;
 --		end if;
 --	end process;
@@ -97,6 +111,8 @@ begin
 			ALUSrc <= '1';
 			RegWrite <= '0';
 			Jump <= '0';
+			ALUControl <= "010";
+			RegRead <= '1';
 --			end if;
 --		end if;
 --	end process;
@@ -109,6 +125,7 @@ begin
 			ALUSrc <= '0';
 			RegWrite <= '0';
 			Jump <= '0';
+			RegRead <= '1';
 --			end if;
 --		end if;
 --	end process;
@@ -119,6 +136,7 @@ begin
 			MemWrite <= '0';
 			RegWrite <= '0';
 			Jump <= '1';
+			RegRead <= '0';
 --			end if;
 --		end if;
 --	end process;
@@ -131,9 +149,15 @@ begin
 			Branch <= '0';
 			ALUSrc <= '1';
 			RegDst <= '0';
-			RegWrite <= '1';
 			ALUControl <= "010";
 			Jump <= '0';
+			if count = "00" then
+				RegRead <= '1';
+				count := count + 1;
+			elsif count = "01" then
+				RegWrite <= '1';
+				count := "00";
+			end if;
 --			end if;
 --		end if;
 --	end process;
@@ -148,6 +172,7 @@ begin
 			Branch <= '0';
 			Jump <= '0';
 			RegOut <= '1';
+			RegRead <= '1';
 --			end if;
 --		end if;
 --	end process;
@@ -162,8 +187,7 @@ begin
 			RegWrite <= '0';
 			Jump <= '0';
 			RegOut <= '0';
-		end if;
---		end if;
+			RegRead <= '1';
+	---LoadImmediate : LDI
 	end process;	
 end Behavioral;
-

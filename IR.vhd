@@ -27,7 +27,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity IR is
-    Port ( Addr : in  STD_LOGIC_VECTOR (31 downto 0);
+    Port ( Addr : in  STD_LOGIC_VECTOR (15 downto 0);
            Inst : out  STD_LOGIC_VECTOR (31 downto 0);
 			  CLK : in STD_LOGIC;
 			  Wd : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -38,32 +38,12 @@ architecture Behavioral of IR is
 type registerFile is array(0 to 65535) of STD_LOGIC_VECTOR (31 downto 0);
 signal registers : registerFile;
 begin
-	p1: process(CLK)
+	process(InstWrite, Wd, Addr)
 	begin
-		if rising_edge(CLK) then
-			if InstWrite = '1' then
-				registers(to_integer(unsigned(Addr(15 downto 0)))) <= Wd;
-				Inst <= x"00000000";
-			elsif InstWrite = '0' then
-				Inst <= registers(to_integer(unsigned(Addr(15 downto 0))));
-			end if;
+		if InstWrite = '1' then
+			registers(to_integer(unsigned(Addr(15 downto 0)))) <= Wd;
+		elsif InstWrite = '0' then
+			Inst <= registers(to_integer(unsigned(Addr(15 downto 0))));
 		end if;
 	end process;
 end Behavioral;
---architecture Behavioral of IR is
---begin
---	process(CLK, Addr)
---	begin
-----		if rising_edge(CLK) then
---			if Addr = x"00000000" then
---				Inst <= x"2001FFFF";
---			elsif Addr = x"00000001" then
---				Inst <= x"FC2F0000";
---			elsif Addr = x"00000002" then
---				Inst <= x"AC010000";
---			elsif Addr = x"00000003" then
---				Inst <= x"F8040000";
---			end if;
-----		end if;
---	end process;
---end Behavioral;

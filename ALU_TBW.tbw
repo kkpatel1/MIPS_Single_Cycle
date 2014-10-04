@@ -1,5 +1,5 @@
 version 3
-E:/Programs and Simulations/GitHub/MIPS_SingleCycle/ALU.vhd
+E:/Programs and Codes/GitHub/MIPS_SingleCycle/ALU.vhd
 ALU
 VHDL
 VHDL
@@ -30,6 +30,7 @@ In2
 SEL
 Output
 COMP
+CLK
 SIGNAL_ORDER_END
 -X-X-X-
 

@@ -22,15 +22,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity ADDER is
-    Port ( In1 : in  STD_LOGIC_VECTOR (31 downto 0);
-			  In2 : in STD_LOGIC_VECTOR (31 downto 0);
-           Out1 : out  STD_LOGIC_VECTOR (31 downto 0));
+    Port ( In1 : in  STD_LOGIC_VECTOR (15 downto 0);
+			  In2 : in STD_LOGIC_VECTOR (15 downto 0);
+           Out1 : out  STD_LOGIC_VECTOR (15 downto 0));
 end ADDER;
 
 architecture Behavioral of ADDER is
