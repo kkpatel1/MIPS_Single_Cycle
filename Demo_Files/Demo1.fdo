@@ -1,0 +1,100 @@
+## This file is demo script to be run in ModelSim by using command "do Demo1.fdo"
+## This script runs following program.
+## ADDI R0 R1 x"00FF"			-- [R1] <-- [R0] + X"00FF"
+## SW R0 R1 x"0000"			-- M[[R0] + X"0000"] <-- [R1]
+## LW R0 R2 x"0000"			-- [R2] <-- M[[R0] + x"0000"]
+## BEQ R1 R2 x"0003"			-- If [R1] == [R2] then
+##   ADD R1 R2 R3 00000 00000		-- 	[R3] <-- [R1] + [R2] 
+##   SW R0 R3 x"0001"			-- 	M[[R0] + X"0001"] <-- [R3]
+##   LW R4 R0 x"0001"			-- 	[R0] <-- M[[R4] + x"0001"]
+##   ADDI R0 R5 x"00FF"			--	[R5] <-- [R0] + x"00FF"
+## PrReg R0				-- Print [R0]
+## PrReg R1				-- Print [R1]
+## PrReg R2				-- Print [R2]
+## PrReg R3				-- Print [R3]
+## PrMem R4 XXXXX x"0000"		-- Print M[[R4] + x"0000"]
+## PrMem R4 XXXXX x"0001"		-- Print M[[R4] + x"0001"]
+
+
+vlib work
+vcom -explicit  -93 "../src/SX.vhd"
+vcom -explicit  -93 "../src/REG_32x32.vhd"
+vcom -explicit  -93 "../src/PC.vhd"
+vcom -explicit  -93 "../src/Memory.vhd"
+vcom -explicit  -93 "../src/IR.vhd"
+vcom -explicit  -93 "../src/ControlUnit.vhd"
+vcom -explicit  -93 "../src/ALU.vhd"
+vcom -explicit  -93 "../src/ADDER.vhd"
+vcom -explicit  -93 "../src/OutputUnit.vhd"
+vcom -explicit  -93 "../src/TOP_MODULE.vhd"
+vsim -t 1ps   -lib work TOP_MODULE
+do {../src/TOP_MODULE.udo}
+view wave
+add wave *
+view structure
+view signals
+run 1000ns
+
+
+force -freeze sim:/top_module/CLK 1 0, 0 {50 ps} -r 100
+force -freeze sim:/top_module/InstWrite 1 0
+
+force -freeze sim:/top_module/InstIn 32'h200100FF 0
+run
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hAC010000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'h8C020000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'h10220004 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'h00221800 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hAC030001 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'h8C800001 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'h200500FF 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hFC000000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hFC200000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hFC400000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hFC600000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hF8800000 0
+run
+run
+run
+force -freeze sim:/top_module/InstIn 32'hF8800001 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstWrite 0 0

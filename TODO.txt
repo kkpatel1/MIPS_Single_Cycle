@@ -1,8 +1,3 @@
-Check COMP? True or False when Equal?
-
-Add some inst. to initialize a register with a number. Or, check why AddImmediate is not working if it is a first Instruction to be executed.
-
-Otherwise Everything is done.
 Write some basic programs. Save it's scripts. Check Jump, R-Type insts. other than Add.
 
 Make Documentation

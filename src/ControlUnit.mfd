@@ -1,0 +1,202 @@
+MDF Database:  version 1.0
+MDF_INFO | ControlUnit | XA2C32A-6-VQ44
+MACROCELL | 0 | 0 | ALUControl<0>_MC
+ATTRIBUTES | 135004930 | 0
+INPUTS | 12 | OpCode<3>  | OpCode<1>  | OpCode<0>  | Fuct<5>  | Fuct<4>  | Fuct<3>  | Fuct<1>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | Fuct<2>  | Fuct<0>
+INPUTP | 12 | 10 | 8 | 7 | 6 | 30 | 31 | 33 | 12 | 11 | 9 | 32 | 34
+LCT | 1 | 2 | Internal_Name
+EQ | 7 | 
+   ALUControl<0>.D = !OpCode<3> & !OpCode<1> & !OpCode<0> & !Fuct<5> & 
+	!Fuct<4> & !Fuct<3> & Fuct<1> & !OpCode<5> & !OpCode<4> & 
+	!OpCode<2> & !Fuct<2> & Fuct<0>
+	# !OpCode<3> & !OpCode<1> & !OpCode<0> & !Fuct<5> & 
+	!Fuct<4> & !Fuct<3> & !Fuct<1> & !OpCode<5> & !OpCode<4> & 
+	!OpCode<2> & Fuct<2> & !Fuct<0>;	// (2 pt, 12 inp)
+    ALUControl<0>.LH = _not0012;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 15 | _not0012_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 1 | 0 | 9
+INPUTS | 12 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | Fuct<5>  | Fuct<4>  | Fuct<3>  | Fuct<2>  | Fuct<1>  | Fuct<0>
+INPUTP | 12 | 10 | 8 | 7 | 12 | 11 | 9 | 6 | 30 | 31 | 32 | 33 | 34
+EQ | 7 | 
+   _not0012 = OpCode<3> & !OpCode<1> & !OpCode<0> & !OpCode<5> & 
+	!OpCode<4> & !OpCode<2>
+	# !OpCode<1> & !OpCode<0> & !Fuct<5> & !Fuct<4> & 
+	!Fuct<3> & !OpCode<5> & !OpCode<4> & !OpCode<2> & !Fuct<2>
+	# !OpCode<1> & !OpCode<0> & !Fuct<5> & !Fuct<4> & 
+	!Fuct<3> & !Fuct<1> & !OpCode<5> & !OpCode<4> & !OpCode<2> & 
+	!Fuct<0>;	// (3 pt, 12 inp)
+
+MACROCELL | 0 | 9 | ALUControl<1>_MC
+ATTRIBUTES | 135004930 | 0
+INPUTS | 4 | OpCode<3>  | _not0011  | Fuct<1>  | _not0012
+INPUTMC | 2 | 0 | 12 | 0 | 15
+INPUTP | 2 | 10 | 33
+LCT | 1 | 2 | Internal_Name
+EQ | 3 | 
+   ALUControl<1>.D = OpCode<3> & _not0011
+	# !Fuct<1> & _not0012;	// (2 pt, 4 inp)
+    ALUControl<1>.LH = _not0012;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 12 | _not0011_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 0 | 9 | 0 | 13 | 0 | 8 | 0 | 10
+INPUTS | 6 | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | OpCode<3>
+INPUTP | 6 | 8 | 7 | 12 | 11 | 9 | 10
+EQ | 4 | 
+   _not0011 = !OpCode<1> & !OpCode<0> & !OpCode<5> & !OpCode<4> & 
+	!OpCode<2>
+	# !OpCode<3> & OpCode<1> & OpCode<0> & OpCode<5> & 
+	!OpCode<4> & !OpCode<2>;	// (2 pt, 6 inp)
+
+MACROCELL | 0 | 1 | ALUControl<2>_MC
+ATTRIBUTES | 135004930 | 0
+INPUTS | 12 | OpCode<3>  | OpCode<1>  | OpCode<0>  | Fuct<5>  | Fuct<4>  | Fuct<3>  | Fuct<1>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | Fuct<2>  | Fuct<0>
+INPUTP | 12 | 10 | 8 | 7 | 6 | 30 | 31 | 33 | 12 | 11 | 9 | 32 | 34
+LCT | 1 | 2 | Internal_Name
+EQ | 7 | 
+   ALUControl<2>.D = !OpCode<3> & !OpCode<1> & !OpCode<0> & !Fuct<5> & 
+	!Fuct<4> & !Fuct<3> & !Fuct<1> & !OpCode<5> & !OpCode<4> & 
+	!OpCode<2> & Fuct<2> & !Fuct<0>
+	# !OpCode<3> & !OpCode<1> & !OpCode<0> & !Fuct<5> & 
+	!Fuct<4> & !Fuct<3> & !Fuct<1> & !OpCode<5> & !OpCode<4> & 
+	!OpCode<2> & !Fuct<2> & Fuct<0>;	// (2 pt, 12 inp)
+    ALUControl<2>.LH = _not0012;	// CTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 4 | ALUSrc_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 8 | OpCode<3>  | OpCode<0>  | _not0008  | OpCode<1>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0007
+INPUTMC | 2 | 0 | 13 | 0 | 11
+INPUTP | 6 | 10 | 7 | 8 | 12 | 11 | 9
+EQ | 4 | 
+   ALUSrc.D = OpCode<3> & !OpCode<0> & _not0008
+	# OpCode<1> & OpCode<0> & OpCode<5> & !OpCode<4> & 
+	!OpCode<2>;	// (2 pt, 7 inp)
+    ALUSrc.LH = _not0007;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 13 | _not0008_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 3 | 0 | 4 | 0 | 14 | 0 | 3
+INPUTS | 6 | _not0011  | OpCode<3>  | OpCode<1>  | OpCode<5>  | OpCode<4>  | OpCode<2>
+INPUTMC | 1 | 0 | 12
+INPUTP | 5 | 10 | 8 | 12 | 11 | 9
+EQ | 3 | 
+   _not0008 = _not0011
+	# OpCode<3> & OpCode<1> & OpCode<5> & OpCode<4> & 
+	OpCode<2>;	// (2 pt, 6 inp)
+
+MACROCELL | 0 | 11 | _not0007_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 2 | 0 | 4 | 0 | 5
+INPUTS | 3 | OpCode<0>  | _not0009  | OpCode<5>
+INPUTMC | 1 | 0 | 14
+INPUTP | 2 | 7 | 12
+EQ | 2 | 
+   _not0007 = !OpCode<0> & _not0009
+	# OpCode<5> & _not0009;	// (2 pt, 3 inp)
+
+MACROCELL | 0 | 14 | _not0009_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 4 | 0 | 11 | 0 | 6 | 0 | 7 | 0 | 10
+INPUTS | 7 | _not0008  | OpCode<3>  | OpCode<1>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | OpCode<0>
+INPUTMC | 1 | 0 | 13
+INPUTP | 6 | 10 | 8 | 12 | 11 | 9 | 7
+EQ | 5 | 
+   _not0009 = _not0008
+	# !OpCode<3> & !OpCode<1> & !OpCode<5> & !OpCode<4> & 
+	OpCode<2>
+	# OpCode<1> & OpCode<0> & OpCode<5> & !OpCode<4> & 
+	!OpCode<2>;	// (3 pt, 7 inp)
+
+MACROCELL | 0 | 5 | Branch_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 7 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0007
+INPUTMC | 1 | 0 | 11
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 3 | 
+   Branch.D = !OpCode<3> & !OpCode<1> & !OpCode<0> & !OpCode<5> & 
+	!OpCode<4> & OpCode<2>;	// (1 pt, 6 inp)
+    Branch.LH = _not0007;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 6 | Jump_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 7 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0009
+INPUTMC | 1 | 0 | 14
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 3 | 
+   Jump.D = !OpCode<3> & !OpCode<1> & OpCode<0> & !OpCode<5> & 
+	!OpCode<4> & OpCode<2>;	// (1 pt, 6 inp)
+    Jump.LH = _not0009;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 7 | MemWrite_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 7 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0009
+INPUTMC | 1 | 0 | 14
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 3 | 
+   MemWrite.D = OpCode<3> & OpCode<1> & OpCode<0> & OpCode<5> & 
+	!OpCode<4> & !OpCode<2>;	// (1 pt, 6 inp)
+    MemWrite.LH = _not0009;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 3 | MemtoReg_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 7 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0008
+INPUTMC | 1 | 0 | 13
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 3 | 
+   MemtoReg.D = !OpCode<3> & OpCode<1> & OpCode<0> & OpCode<5> & 
+	!OpCode<4> & !OpCode<2>;	// (1 pt, 6 inp)
+    MemtoReg.LH = _not0008;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 8 | RegDst_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 7 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>  | _not0011
+INPUTMC | 1 | 0 | 12
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 3 | 
+   RegDst.D = !OpCode<3> & !OpCode<1> & !OpCode<0> & !OpCode<5> & 
+	!OpCode<4> & !OpCode<2>;	// (1 pt, 6 inp)
+    RegDst.LH = _not0011;	// PTC	(1 pt, 1 inp)
+
+MACROCELL | 0 | 2 | RegOut_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 6 | OpCode<3>  | OpCode<1>  | OpCode<0>  | OpCode<5>  | OpCode<4>  | OpCode<2>
+INPUTP | 6 | 10 | 8 | 7 | 12 | 11 | 9
+EQ | 4 | 
+   RegOut.D = OpCode<3> & OpCode<1> & OpCode<0> & OpCode<5> & 
+	OpCode<4> & OpCode<2>;	// (1 pt, 6 inp)
+    RegOut.LH = OpCode<3> & OpCode<1> & OpCode<5> & OpCode<4> & 
+	OpCode<2>;	// PTC	(1 pt, 5 inp)
+
+MACROCELL | 0 | 10 | RegWrite_MC
+ATTRIBUTES | 787234 | 0
+INPUTS | 2 | _not0011  | _not0009
+INPUTMC | 2 | 0 | 12 | 0 | 14
+EQ | 2 | 
+   RegWrite.D = _not0011;	// (1 pt, 1 inp)
+    RegWrite.LH = _not0009;	// PTC	(1 pt, 1 inp)
+
+PIN | OpCode<3> | 64 | 16 | LVCMOS18 | 10 | 14 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 9 | 0 | 1 | 0 | 13 | 0 | 4 | 0 | 14 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | OpCode<1> | 64 | 16 | LVCMOS18 | 8 | 13 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 1 | 0 | 13 | 0 | 4 | 0 | 14 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | OpCode<0> | 64 | 16 | LVCMOS18 | 7 | 13 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 1 | 0 | 4 | 0 | 14 | 0 | 11 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | Fuct<5> | 64 | 16 | LVCMOS18 | 6 | 3 | 0 | 0 | 0 | 15 | 0 | 1
+PIN | Fuct<4> | 64 | 16 | LVCMOS18 | 30 | 3 | 0 | 0 | 0 | 15 | 0 | 1
+PIN | Fuct<3> | 64 | 16 | LVCMOS18 | 31 | 3 | 0 | 0 | 0 | 15 | 0 | 1
+PIN | Fuct<1> | 64 | 16 | LVCMOS18 | 33 | 4 | 0 | 0 | 0 | 15 | 0 | 9 | 0 | 1
+PIN | OpCode<5> | 64 | 16 | LVCMOS18 | 12 | 14 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 1 | 0 | 13 | 0 | 4 | 0 | 14 | 0 | 11 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | OpCode<4> | 64 | 16 | LVCMOS18 | 11 | 13 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 1 | 0 | 13 | 0 | 4 | 0 | 14 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | OpCode<2> | 64 | 16 | LVCMOS18 | 9 | 13 | 0 | 0 | 0 | 15 | 0 | 12 | 0 | 1 | 0 | 13 | 0 | 4 | 0 | 14 | 0 | 5 | 0 | 6 | 0 | 7 | 0 | 3 | 0 | 8 | 0 | 2
+PIN | Fuct<2> | 64 | 16 | LVCMOS18 | 32 | 3 | 0 | 0 | 0 | 15 | 0 | 1
+PIN | Fuct<0> | 64 | 16 | LVCMOS18 | 34 | 3 | 0 | 0 | 0 | 15 | 0 | 1
+PIN | ALUControl<0> | 536871040 | 0 | LVCMOS18 | 5
+PIN | ALUControl<1> | 536871040 | 0 | LVCMOS18 | 39
+PIN | ALUControl<2> | 536871040 | 0 | LVCMOS18 | 4
+PIN | ALUSrc | 536871040 | 0 | LVCMOS18 | 44
+PIN | Branch | 536871040 | 0 | LVCMOS18 | 43
+PIN | Jump | 536871040 | 0 | LVCMOS18 | 42
+PIN | MemWrite | 536871040 | 0 | LVCMOS18 | 41
+PIN | MemtoReg | 536871040 | 0 | LVCMOS18 | 1
+PIN | RegDst | 536871040 | 0 | LVCMOS18 | 40
+PIN | RegOut | 536871040 | 0 | LVCMOS18 | 3
+PIN | RegWrite | 536871040 | 0 | LVCMOS18 | 38
