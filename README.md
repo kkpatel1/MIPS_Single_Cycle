@@ -19,7 +19,7 @@ Important Specifications of this implementation of Processor
 
 Some of main features of this code:
 - All basic components are made using Behavioral Architecture and Merged using Structural Architecture in `TOP_MODULE.vhd`
-- A Documentation will be provided for available Instructions and their formats, available registers and Memory etc.
+- A Documentation will be provided soon for available Instructions and their formats, available registers and Memory etc.
 - A Python Program to make script which will initialize IR in ModelSim. It will take a simple instructions as Input. This output script can be run in ModelSim to get Simulation of Processor.
 
 ## Dependencies:
