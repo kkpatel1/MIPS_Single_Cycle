@@ -22,6 +22,11 @@ Some of main features of this code:
 - A Documentation will be provided for available Instructions and their formats, available registers and Memory etc.
 - Also a Python Program to make script which will initialize IR taking Binary Sequence or Simple Instruction as Input. This script can be run in ModelSim to get Simulation of Processor.
 
+## Dependencies:
+- ModelSim (Code is sucessfully tested on Student Edition)
+- Python 2.7 (Just to convert Mnemonics of Instructions to Hexadecimal Instruction which will be used in ModelSim)
+- Xilinx WebPack Design Software(Optional)
+
 ## Usage
 - Clone this Repository on your local machine (Or download ZIP file and extract it's content)
 - `src/` folder contains Source files of the Code. Open `MIPS_Single_Cycle.ise` using Xilinx. All VHDL Files are available here.
@@ -29,4 +34,4 @@ Some of main features of this code:
 - Run `do <filename>.fdo` to add Intructions in IR.
 - `<filename>.fdo` can be made using Python Programs available in base folder. To create your own Script, please see Documentation.
 
-This code is edited using <a href="http://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.htm">Xilinx WebPack Design Software</a> and simulated using ModelSim SE.
+This code is edited using <a href="http://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.htm">Xilinx WebPack Design Software</a> and simulated using <a href="http://www.mentor.com/company/higher_ed/modelsim-student-edition">ModelSim SE</a>.
