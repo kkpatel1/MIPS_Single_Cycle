@@ -7,15 +7,15 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dE:/Programs and Codes/GitHub/MIPS_SingleCycle/Demo_Files
+dE:/Programs and Codes/GitHub/MIPS_SingleCycle/Demo_Files
 Eadder
-Z1 w1412515721
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
+Z0 w1412515721
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 dE:/Programs and Codes/GitHub/MIPS_SingleCycle/Scripts
 Z7 8../src/ADDER.vhd
 Z8 F../src/ADDER.vhd
 l0
@@ -24,20 +24,20 @@ V4a5S3RR]R;7OnQR^mRZi20
 !s100 BXSbK:fOU0Sm3IRQZFI;f2
 Z9 OP;C;10.3c;59
 31
-Z10 !s110 1412521765
+Z10 !s110 1413063558
 !i10b 1
-Z11 !s108 1412521765.384000
+Z11 !s108 1413063558.696000
 Z12 !s90 -reportprogress|300|-explicit|-93|../src/ADDER.vhd|
 Z13 !s107 ../src/ADDER.vhd|
 !i113 1
 Z14 o-explicit -93 -O0
 Z15 tExplicit 1
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 5 adder 0 22 4a5S3RR]R;7OnQR^mRZi20
 l33
 L31
@@ -55,11 +55,11 @@ R14
 R15
 Ealu
 Z16 w1412515711
-R4
 R3
+R2
+R4
 R5
 R6
-R0
 Z17 8../src/ALU.vhd
 Z18 F../src/ALU.vhd
 l0
@@ -68,19 +68,19 @@ VRlejR86f=jU3O0K[T1zY:2
 !s100 N?CCXz?d[GEI_;^4c:>d[1
 R9
 31
-Z19 !s110 1412521764
+R10
 !i10b 1
-Z20 !s108 1412521764.864000
-Z21 !s90 -reportprogress|300|-explicit|-93|../src/ALU.vhd|
-Z22 !s107 ../src/ALU.vhd|
+Z19 !s108 1413063558.196000
+Z20 !s90 -reportprogress|300|-explicit|-93|../src/ALU.vhd|
+Z21 !s107 ../src/ALU.vhd|
 !i113 1
 R14
 R15
 Abehavioral
-R4
 R3
+R2
+R4
 R5
-R6
 DEx4 work 3 alu 0 22 RlejR86f=jU3O0K[T1zY:2
 l37
 L35
@@ -88,42 +88,42 @@ V0`gCm?j1<;S05Y=RV?7W]3
 !s100 4UnOn>CY6JDNmfai5X<NH3
 R9
 31
-R19
+R10
 !i10b 1
+R19
 R20
 R21
-R22
 !i113 1
 R14
 R15
 Econtrolunit
-Z23 w1412515538
-R4
+Z22 w1412515538
 R3
+R2
+R4
 R5
 R6
-R0
-Z24 8../src/ControlUnit.vhd
-Z25 F../src/ControlUnit.vhd
+Z23 8../src/ControlUnit.vhd
+Z24 F../src/ControlUnit.vhd
 l0
 L25
 V2Ozd9DjS]?I7eM2PjoZnJ2
 !s100 FDY1g0zD<n;C@m^`D21?d0
 R9
 31
-R19
+Z25 !s110 1413063557
 !i10b 1
-Z26 !s108 1412521764.305000
+Z26 !s108 1413063557.694000
 Z27 !s90 -reportprogress|300|-explicit|-93|../src/ControlUnit.vhd|
 Z28 !s107 ../src/ControlUnit.vhd|
 !i113 1
 R14
 R15
 Abehavioral
-R4
 R3
+R2
+R4
 R5
-R6
 DEx4 work 11 controlunit 0 22 2Ozd9DjS]?I7eM2PjoZnJ2
 l46
 L42
@@ -131,7 +131,7 @@ VNiPfjb8MCFdoYF9nNQNUQ3
 !s100 bh9kCjn?`adEIVdXO@j_J3
 R9
 31
-R19
+R25
 !i10b 1
 R26
 R27
@@ -141,12 +141,12 @@ R14
 R15
 Eir
 Z29 w1412516144
+R1
 R2
 R3
 R4
 R5
 R6
-R0
 Z30 8../src/IR.vhd
 Z31 F../src/IR.vhd
 l0
@@ -155,20 +155,20 @@ Vkf8An?M7l8`9lMg7DkbRg0
 !s100 VQ;2Q6bEQGomz99b?8k=O2
 R9
 31
-Z32 !s110 1412521763
+R25
 !i10b 1
-Z33 !s108 1412521763.772000
-Z34 !s90 -reportprogress|300|-explicit|-93|../src/IR.vhd|
-Z35 !s107 ../src/IR.vhd|
+Z32 !s108 1413063556.660000
+Z33 !s90 -reportprogress|300|-explicit|-93|../src/IR.vhd|
+Z34 !s107 ../src/IR.vhd|
 !i113 1
 R14
 R15
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 2 ir 0 22 kf8An?M7l8`9lMg7DkbRg0
 l36
 L33
@@ -176,44 +176,44 @@ VXPlX`F_O60N=C]@gezcDS1
 !s100 [lzDHEXb8im5fLk15C7F?0
 R9
 31
-R32
+R25
 !i10b 1
+R32
 R33
 R34
-R35
 !i113 1
 R14
 R15
 Ememory
-Z36 w1412516618
+Z35 w1412516618
+R1
 R2
 R3
 R4
 R5
 R6
-R0
-Z37 8../src/Memory.vhd
-Z38 F../src/Memory.vhd
+Z36 8../src/Memory.vhd
+Z37 F../src/Memory.vhd
 l0
 L25
 Ve;;I1=faeEF1DH=MBDeY?2
 !s100 _X`>gSeTl[K1T:zEW:H_03
 R9
 31
-R32
+Z38 !s110 1413063555
 !i10b 1
-Z39 !s108 1412521763.183000
+Z39 !s108 1413063555.957000
 Z40 !s90 -reportprogress|300|-explicit|-93|../src/Memory.vhd|
 Z41 !s107 ../src/Memory.vhd|
 !i113 1
 R14
 R15
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 6 memory 0 22 e;;I1=faeEF1DH=MBDeY?2
 l38
 L35
@@ -221,7 +221,7 @@ V>FMP3[HA]Fn:Q;;S^n3LZ3
 !s100 U7Tn7C]J7Y;L5k8?5[kQ=1
 R9
 31
-R32
+R38
 !i10b 1
 R39
 R40
@@ -231,11 +231,11 @@ R14
 R15
 Eoutputunit
 Z42 w1412516423
-R4
 R3
+R2
+R4
 R5
 R6
-R0
 Z43 8../src/OutputUnit.vhd
 Z44 F../src/OutputUnit.vhd
 l0
@@ -244,19 +244,19 @@ V33Cz?SFVZ2ZVQU`:hc5P:1
 !s100 ^@cIf0KB@9GJa7MSfJi<_0
 R9
 31
-R10
+Z45 !s110 1413063559
 !i10b 1
-Z45 !s108 1412521765.918000
-Z46 !s90 -reportprogress|300|-explicit|-93|../src/OutputUnit.vhd|
-Z47 !s107 ../src/OutputUnit.vhd|
+Z46 !s108 1413063559.214000
+Z47 !s90 -reportprogress|300|-explicit|-93|../src/OutputUnit.vhd|
+Z48 !s107 ../src/OutputUnit.vhd|
 !i113 1
 R14
 R15
 Abehavioral
-R4
 R3
+R2
+R4
 R5
-R6
 DEx4 work 10 outputunit 0 22 33Cz?SFVZ2ZVQU`:hc5P:1
 l34
 L33
@@ -264,44 +264,44 @@ VWdQN^ZRzTT5GURo30S9M?3
 !s100 >OQ;LoELkdl18JSQ5PPVU3
 R9
 31
-R10
-!i10b 1
 R45
+!i10b 1
 R46
 R47
+R48
 !i113 1
 R14
 R15
 Epc
-Z48 w1412521353
+Z49 w1412521353
+R1
 R2
 R3
 R4
 R5
 R6
-R0
-Z49 8../src/PC.vhd
-Z50 F../src/PC.vhd
+Z50 8../src/PC.vhd
+Z51 F../src/PC.vhd
 l0
 L25
 V?B@H_go6HH[oZWa9^W`jM3
 !s100 6;B^2N8LSg[7?6oz=^ZX50
 R9
 31
-Z51 !s110 1412521762
+R38
 !i10b 1
-Z52 !s108 1412521762.668000
+Z52 !s108 1413063555.299000
 Z53 !s90 -reportprogress|300|-explicit|-93|../src/PC.vhd|
 Z54 !s107 ../src/PC.vhd|
 !i113 1
 R14
 R15
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 2 pc 0 22 ?B@H_go6HH[oZWa9^W`jM3
 l35
 L33
@@ -309,7 +309,7 @@ VnRF6NU^XoLEijb9;N=7<>3
 !s100 [OF^7SHS`9MDeW10CPRNT2
 R9
 31
-R51
+R38
 !i10b 1
 R52
 R53
@@ -319,12 +319,12 @@ R14
 R15
 Ereg_32x32
 Z55 w1412516635
+R1
 R2
 R3
 R4
 R5
 R6
-R0
 Z56 8../src/REG_32x32.vhd
 Z57 F../src/REG_32x32.vhd
 l0
@@ -333,20 +333,20 @@ V<l=YPoRDTF7Fn`^6[YD`A3
 !s100 `dMazNTTQ0D;G7zfQKZ?h1
 R9
 31
-Z58 !s110 1412521761
+Z58 !s110 1413063554
 !i10b 1
-Z59 !s108 1412521761.887000
+Z59 !s108 1413063554.703000
 Z60 !s90 -reportprogress|300|-explicit|-93|../src/REG_32x32.vhd|
 Z61 !s107 ../src/REG_32x32.vhd|
 !i113 1
 R14
 R15
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 9 reg_32x32 0 22 <l=YPoRDTF7Fn`^6[YD`A3
 l41
 L38
@@ -364,12 +364,12 @@ R14
 R15
 Esx
 Z62 w1412515602
+R1
+R3
 R2
 R4
-R3
 R5
 R6
-R0
 Z63 8../src/SX.vhd
 Z64 F../src/SX.vhd
 l0
@@ -380,18 +380,18 @@ R9
 31
 R58
 !i10b 1
-Z65 !s108 1412521761.336000
+Z65 !s108 1413063553.937000
 Z66 !s90 -reportprogress|300|-explicit|-93|../src/SX.vhd|
 Z67 !s107 ../src/SX.vhd|
 !i113 1
 R14
 R15
 Abehavioral
+R1
+R3
 R2
 R4
-R3
 R5
-R6
 DEx4 work 2 sx 0 22 UQ_1jWXc]gRd0:ghOc^]_1
 l35
 L34
@@ -409,11 +409,11 @@ R14
 R15
 Etop_module
 Z68 w1412521337
-R4
 R3
+R2
+R4
 R5
 R6
-R0
 Z69 8../src/TOP_MODULE.vhd
 Z70 F../src/TOP_MODULE.vhd
 l0
@@ -422,31 +422,31 @@ V;`Xf2CZ2nmNaHkH;Eoz@Y3
 !s100 RS1a;bM1e]R9=Sfm:]3;A3
 R9
 31
-Z71 !s110 1412521766
+R45
 !i10b 1
-Z72 !s108 1412521766.435000
-Z73 !s90 -reportprogress|300|-explicit|-93|../src/TOP_MODULE.vhd|
-Z74 !s107 ../src/TOP_MODULE.vhd|
+Z71 !s108 1413063559.888000
+Z72 !s90 -reportprogress|300|-explicit|-93|../src/TOP_MODULE.vhd|
+Z73 !s107 ../src/TOP_MODULE.vhd|
 !i113 1
 R14
 R15
 Astructural
-R4
 R3
+R2
+R4
 R5
-R6
-DEx4 work 10 top_module 0 22 ;`Xf2CZ2nmNaHkH;Eoz@Y3
+Z74 DEx4 work 10 top_module 0 22 ;`Xf2CZ2nmNaHkH;Eoz@Y3
 l133
 L32
-Vzg:L[Sa3i[AgmO[lW@bkN1
-!s100 =KPJH^oWPcFijcOBeX?PQ1
+Z75 Vzg:L[Sa3i[AgmO[lW@bkN1
+Z76 !s100 =KPJH^oWPcFijcOBeX?PQ1
 R9
 31
-R71
+R45
 !i10b 1
+R71
 R72
 R73
-R74
 !i113 1
 R14
 R15
