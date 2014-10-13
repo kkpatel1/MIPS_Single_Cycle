@@ -15,7 +15,6 @@ Important Specifications of this implementation of Processor
   - ADD, SUB, AND, OR, SLT
   - LW, SW
   - BEQ, JUMP
-  - See `Documentation/` for more information.
 
 Some of main features of this code:
 - All basic components are made using Behavioral Architecture and Merged using Structural Architecture in `TOP_MODULE.vhd`

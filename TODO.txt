@@ -3,12 +3,7 @@ How Jump Works?
 
 Make Documentation
 
-Try learning about "mti.h"
-
-Otherwise use Python/Java program to convert mnemonics into Binary and Make a script. And open modelSim using Python/Java with the script loaded.
-
-Before Commit add Location of ModelSim setup file.
-
 PrMem? 16-bit Number Signed or Unsigned? Change accordingly in Mnemonics.py. Check using basic VHDL Program
 
-Complete Python Script
+
+Complete Documentation
