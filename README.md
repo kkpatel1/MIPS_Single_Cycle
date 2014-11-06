@@ -12,14 +12,15 @@ Important Specifications of this implementation of Processor
 - 16 bit Address and Data length
 - 32 bit Instruction Length
 - Basic Instructions includes:
-  - ADD, SUB, AND, OR, SLT
+  - ADD, SUB, AND, OR, SLT, ADDI
   - LW, SW
   - BEQ, JUMP
+  - PRREG, PRMEM
   - See `Documentation\Documentation.pdf` for more information.
 
 Some of main features of this code:
 - All basic components are made using Behavioral Architecture and Merged using Structural Architecture in `TOP_MODULE.vhd`
-- A Documentation will be provided soon for available Instructions and their formats, available registers and Memory etc.
+- A Documentation will be provided soon for available Instructions and their formats, available registers and Memory etc. Currently, `Demo1.fdo` in `Scripts/` is included as an example. Comment part contains a program which can be written using Python Program. Python Program will automatically generate the Modelsim script file.
 - A Python Program to make script which will initialize IR in ModelSim. It will take a simple instructions as Input. This output script can be run in ModelSim to get Simulation of Processor.
 
 ## Dependencies:
