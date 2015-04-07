@@ -20,7 +20,7 @@ _xmsgs
 *.cmd_log
 *.udo
 transcript
-
+src/*/*
 Documentation/*.*
 !Documentation/*.pdf
 !Documentation/*.tex

@@ -35,4 +35,4 @@ Some of main features of this code:
 - Run `do <filename>.fdo` to add Intructions in IR.
 - `<filename>.fdo` can be made using Python Programs available in base folder.
 
-This code is edited using <a href="http://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.htm">Xilinx WebPack Design Software</a> and simulated using <a href="http://www.mentor.com/company/higher_ed/modelsim-student-edition">ModelSim SE</a>.
+This code is edited using <a href="http://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/design-tools.html">Xilinx ISE 14.7</a> and simulated using <a href="http://www.mentor.com/company/higher_ed/modelsim-student-edition">ModelSim SE</a>.

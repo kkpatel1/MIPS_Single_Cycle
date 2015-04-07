@@ -1,0 +1,98 @@
+vlib work
+vcom -explicit  -93 "../src/SX.vhd"
+vcom -explicit  -93 "../src/REG_32x32.vhd"
+vcom -explicit  -93 "../src/PC.vhd"
+vcom -explicit  -93 "../src/Memory.vhd"
+vcom -explicit  -93 "../src/IR.vhd"
+vcom -explicit  -93 "../src/ControlUnit.vhd"
+vcom -explicit  -93 "../src/ALU.vhd"
+vcom -explicit  -93 "../src/ADDER.vhd"
+vcom -explicit  -93 "../src/OutputUnit.vhd"
+vcom -explicit  -93 "../src/TOP_MODULE.vhd"
+vsim -t 1ps   -lib work TOP_MODULE
+do {../src/TOP_MODULE.udo}
+view wave
+add wave *
+view structure
+view signals
+run 1000ns
+
+force -freeze sim:/top_module/CLK 1 0, 0 {50 ps} -r 100
+force -freeze sim:/top_module/InstWrite 1 0
+force -freeze sim:/top_module/InstIn 32'h20E10002 0
+run
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h20E20003 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hACE10000 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hACE20001 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h10460008 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h00232000 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hACE40002 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h8CE10002 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h20E80001 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h00482801 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hACE50003 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h8CE20003 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'h14000004 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hFC400000 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstIn 32'hFC200000 0
+run
+run
+run
+
+force -freeze sim:/top_module/InstWrite 0 0

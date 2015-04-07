@@ -22,6 +22,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
     Port ( In1 : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -45,13 +46,13 @@ begin
 			elsif SEL = "010" then
 				Output <= In1 + In2;
 			elsif SEL = "110" then
-				Output <= In1 + not(In2) + 1;
-			elsif SEL = "111" then
-				if In1 < In2 then
-					Output <= X"0001";
-				else
-					Output <= X"0000";
-				end if;
+				Output <= unsigned(In1) - unsigned(In2);
+--			elsif SEL = "111" then
+--				if In1 < In2 then
+--					Output <= X"0001";
+--				else
+--					Output <= X"0000";
+--				end if;
 			end if;
 			count := count + 1;
 		elsif count = "01" then
@@ -60,6 +61,6 @@ begin
 			count := count + 1;
 		end if;
 	end process;
-	COMP <= '0' when In1 = In2 else
-				'1';
+	COMP <= '1' when In1 = In2 else
+				'0';
 end Behavioral;
