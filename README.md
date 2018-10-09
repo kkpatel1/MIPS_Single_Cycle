@@ -20,7 +20,7 @@ Important Specifications of this implementation of Processor
 
 Some of main features of this code:
 - All basic components are made using Behavioral Architecture and Merged using Structural Architecture in `TOP_MODULE.vhd`
-- A Documentation will be provided soon for available Instructions and their formats, available registers and Memory etc. Currently, `Demo1.fdo` in `Scripts/` is included as an example. Comment part contains a program which can be written using Python Program. Python Program will automatically generate the Modelsim script file.
+- A Documentation will be provided soon for available Instructions and their formats, available registers and Memory etc. Currently, `Demo1.fdo` in [`Scripts/`](/kartikp1995/MIPS_Single_Cycle/tree/master/Scripts) is included as an example. Comment part contains a program which can be written using Python Program. Python Program will automatically generate the Modelsim script file.
 - A Python Program to make script which will initialize IR in ModelSim. It will take a simple instructions as Input. This output script can be run in ModelSim to get Simulation of Processor.
 
 ## Dependencies:
@@ -30,8 +30,8 @@ Some of main features of this code:
 
 ## Usage
 - Clone this Repository on your local machine (Or download ZIP file and extract it's content)
-- `src/` folder contains Source files of the Code. Open `MIPS_Single_Cycle.ise` using Xilinx. All VHDL Files are available here.
-- Open ModelSim and change current directory to `Scripts/`.
+- [`src/`](/kartikp1995/MIPS_Single_Cycle/tree/master/src) folder contains source files of the Code. Open `MIPS_Single_Cycle.ise` using Xilinx. All VHDL Files are available here.
+- Open ModelSim and change current directory to [`Scripts/`](/kartikp1995/MIPS_Single_Cycle/tree/master/Scripts)`.
 - Run `do <filename>.fdo` to add Intructions in IR.
 - `<filename>.fdo` can be made using Python Programs available in base folder.
 
